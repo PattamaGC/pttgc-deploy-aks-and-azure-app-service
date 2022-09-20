@@ -2,7 +2,7 @@ name: Build workflow
 on: 
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   unittest:
@@ -84,7 +84,6 @@ jobs:
       - name: Push an image to ACR
         run: |
               docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/user-service:${{ github.sha }}
-
    deploy-aks:
     name: Deploy to AKS cluster
     runs-on: ubuntu-latest
